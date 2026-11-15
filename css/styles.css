@@ -83,9 +83,10 @@ h6 {
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
-.portfolio-tabs__tab + .portfolio-tabs__tab {
+.portfolio-tabs__tab+.portfolio-tabs__tab {
   margin-left: -0.625rem;
 }
 
@@ -309,4 +310,154 @@ h6 {
 
 .film-project__description {
   min-height: 3em;
+}
+
+/* Native project anchors keep navigation available without JavaScript. */
+.project-nav,
+.art-project,
+.film-project {
+  scroll-margin-block-start: 1.5rem;
+}
+
+.project-nav a,
+.project-back-link {
+  display: inline-block;
+  padding-block: 0.375rem;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  text-underline-offset: 0.2em;
+}
+
+.project-nav a {
+  font-size: 1rem;
+}
+
+.project-back-link {
+  font-size: 1rem;
+}
+
+.project-nav__list>li {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.project-nav a:hover,
+.project-back-link:hover {
+  color: var(--color-text);
+  text-decoration-thickness: 2px;
+}
+
+.project-nav a:focus-visible,
+.project-back-link:focus-visible,
+.project-nav:focus-visible,
+.art-project:focus-visible,
+.film-project:focus-visible {
+  outline: 3px solid var(--color-text);
+  outline-offset: 4px;
+}
+
+/* Responsive typography: preserve mobile defaults and scale at shared breakpoints. */
+@media (min-width: 768px) {
+  .art-project__title,
+  .film-project__title {
+    font-size: 2rem;
+    margin-bottom: 0.75em;
+  }
+
+  .portfolio-header__eyebrow,
+  .portfolio-header__tagline {
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  .art-project__caption,
+  .film-project__description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .project-nav a {
+    font-size: 1.1rem;
+  }
+
+  .project-back-link {
+    font-size: 1.3rem;
+  }
+
+  .portfolio-tabs__tab {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .art-project__title,
+  .film-project__title {
+    font-size: 2.6rem;
+  }
+
+  .portfolio-header__eyebrow,
+  .portfolio-header__tagline {
+    font-size: 1.6rem;
+  }
+
+  .art-project__caption,
+  .film-project__description {
+    font-size: 1.3rem;
+  }
+
+  .project-nav a {
+    font-size: 1.6rem;
+  }
+
+  .project-back-link {
+    font-size: 1.6rem;
+  }
+
+  .portfolio-tabs__tab {
+    font-size: 1.6rem;
+    min-width: 240px;
+    padding-block: 0.875rem 1rem;
+    padding-inline: 2.5rem 3.5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .art-project__title,
+  .film-project__title {
+    font-size: 3.2rem;
+  }
+
+  .portfolio-header__eyebrow,
+  .portfolio-header__tagline {
+    font-size: 2rem;
+  }
+
+  .art-project__caption,
+  .film-project__description {
+    font-size: 1.5rem;
+  }
+
+  .project-nav a {
+    font-size: 1.9rem;
+  }
+
+  .project-back-link {
+    font-size: 1.9rem;
+  }
+
+  .portfolio-tabs__tab {
+    font-size: 2rem;
+    min-width: 300px;
+    padding-block: 1rem 1.125rem;
+    padding-inline: 3rem 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }

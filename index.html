@@ -37,8 +37,16 @@
         aria-controls="film-animation-panel" tabindex="-1">Film Animation</button>
     </div>
     <div class="portfolio-panel" id="visual-art-panel" role="tabpanel" aria-labelledby="visual-art-tab" tabindex="0">
+      <nav class="project-nav mb-4 mb-md-5" id="visual-art-projects" aria-label="Visual Art projects" tabindex="-1">
+        <ul class="project-nav__list d-flex flex-wrap gap-2 gap-md-3 list-unstyled mb-0">
+          <li><a href="#visual-art-realism-portrait">Realism Portrait</a></li>
+          <li><a href="#visual-art-high-tides">High Tides</a></li>
+          <li><a href="#visual-art-franz">Franz</a></li>
+          <li><a href="#visual-art-9e">9E</a></li>
+        </ul>
+      </nav>
       <div class="art-gallery d-flex flex-column align-items-center py-3 py-md-4">
-        <section class="art-project art-project--portrait-pair" aria-labelledby="realism-portrait-title">
+        <section class="art-project art-project--portrait-pair" aria-labelledby="realism-portrait-title" id="visual-art-realism-portrait" tabindex="-1">
           <h2 class="art-project__title" id="realism-portrait-title">Realism Portrait
             <span class="art-project__divider art-project__divider--primary" aria-hidden="true"></span>
           </h2>
@@ -56,10 +64,11 @@
               <p class="mb-0"></p>
             </figcaption>
           </figure>
+          <a class="project-back-link mt-3" href="#visual-art-projects">Back to projects <span aria-hidden="true">↑</span></a>
         </section>
         <span class="art-project__section-divider art-project__divider--primary" aria-hidden="true"></span>
 
-        <section class="art-project art-project--wide" aria-labelledby="high-ties-title">
+        <section class="art-project art-project--wide" aria-labelledby="high-ties-title" id="visual-art-high-tides" tabindex="-1">
           <h2 class="art-project__title" id="high-ties-title">High Tides
             <span class="art-project__divider art-project__divider--accent" aria-hidden="true"></span>
           </h2>
@@ -73,10 +82,11 @@
               <p class="mb-0"></p>
             </figcaption>
           </figure>
+          <a class="project-back-link mt-3" href="#visual-art-projects">Back to projects <span aria-hidden="true">↑</span></a>
         </section>
         <span class="art-project__section-divider art-project__divider--accent" aria-hidden="true"></span>
 
-        <section class="art-project art-project--franz" aria-labelledby="franz-title">
+        <section class="art-project art-project--franz" aria-labelledby="franz-title" id="visual-art-franz" tabindex="-1">
           <h2 class="art-project__title" id="franz-title">Franz
             <span class="art-project__divider art-project__divider--primary" aria-hidden="true"></span>
           </h2>
@@ -90,10 +100,11 @@
               <p class="mb-0"></p>
             </figcaption>
           </figure>
+          <a class="project-back-link mt-3" href="#visual-art-projects">Back to projects <span aria-hidden="true">↑</span></a>
         </section>
         <span class="art-project__section-divider art-project__divider--primary" aria-hidden="true"></span>
 
-        <section class="art-project art-project--wide" aria-labelledby="9e-title">
+        <section class="art-project art-project--wide" aria-labelledby="9e-title" id="visual-art-9e" tabindex="-1">
           <h2 class="art-project__title" id="9e-title">9E
             <span class="art-project__divider art-project__divider--accent" aria-hidden="true"></span>
           </h2>
@@ -107,13 +118,21 @@
               <p class="mb-0"></p>
             </figcaption>
           </figure>
+          <a class="project-back-link mt-3" href="#visual-art-projects">Back to projects <span aria-hidden="true">↑</span></a>
         </section>
       </div>
     </div>
     <div class="portfolio-panel" id="film-animation-panel" role="tabpanel" aria-labelledby="film-animation-tab"
       tabindex="0" hidden>
+      <nav class="project-nav mb-4 mb-md-5" id="film-animation-projects" aria-label="Film Animation projects" tabindex="-1">
+        <ul class="project-nav__list d-flex flex-wrap gap-2 gap-md-3 list-unstyled mb-0">
+          <li><a href="#film-animation-sentimental">Sentimental</a></li>
+          <li><a href="#film-animation-shes-not-there">She's Not There</a></li>
+          <li><a href="#film-animation-pirate">Pirate</a></li>
+        </ul>
+      </nav>
       <div class="film-gallery d-flex flex-column align-items-center py-3 py-md-4">
-        <section class="film-project" aria-labelledby="sentimental-title">
+        <section class="film-project" aria-labelledby="sentimental-title" id="film-animation-sentimental" tabindex="-1">
           <h2 class="film-project__title" id="sentimental-title">Sentimental
             <span class="film-project__underline film-project__divider--primary" aria-hidden="true"></span>
           </h2>
@@ -124,10 +143,11 @@
           </video>
           <p class="film-project__description mt-4 mb-0"></p>
           <!-- Add the film transcript or a link to it here when available. -->
+          <a class="project-back-link mt-3" href="#film-animation-projects">Back to projects <span aria-hidden="true">↑</span></a>
         </section>
         <span class="film-project__section-divider film-project__divider--primary" aria-hidden="true"></span>
 
-        <section class="film-project" aria-labelledby="shes-not-there-title">
+        <section class="film-project" aria-labelledby="shes-not-there-title" id="film-animation-shes-not-there" tabindex="-1">
           <h2 class="film-project__title" id="shes-not-there-title">She's Not There — The Zombies
             <span class="film-project__underline film-project__divider--accent" aria-hidden="true"></span>
           </h2>
@@ -138,10 +158,11 @@
           </video>
           <p class="film-project__description mt-4 mb-0"></p>
           <!-- Add the film transcript or a link to it here when available. -->
+          <a class="project-back-link mt-3" href="#film-animation-projects">Back to projects <span aria-hidden="true">↑</span></a>
         </section>
         <span class="film-project__section-divider film-project__divider--accent" aria-hidden="true"></span>
 
-        <section class="film-project" aria-labelledby="pirate-title">
+        <section class="film-project" aria-labelledby="pirate-title" id="film-animation-pirate" tabindex="-1">
           <h2 class="film-project__title" id="pirate-title">Pirate
             <span class="film-project__underline film-project__divider--primary" aria-hidden="true"></span>
           </h2>
@@ -152,6 +173,7 @@
           </video>
           <p class="film-project__description mt-4 mb-0"></p>
           <!-- Add the film transcript or a link to it here when available. -->
+          <a class="project-back-link mt-3" href="#film-animation-projects">Back to projects <span aria-hidden="true">↑</span></a>
         </section>
       </div>
     </div>
