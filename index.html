@@ -29,7 +29,16 @@
       <p class="portfolio-header__tagline mb-0">Art • Design • Animation</p>
     </div>
   </header>
-  <main></main>
+  <main class="container-fluid px-3 px-md-4 px-xl-5 py-4 py-md-5">
+    <div class="portfolio-tabs d-flex justify-content-start" role="tablist" aria-label="Portfolio categories">
+      <button class="portfolio-tabs__tab" type="button" id="visual-art-tab" role="tab"
+        aria-selected="true" aria-controls="visual-art-panel" tabindex="0">Visual Art</button>
+      <button class="portfolio-tabs__tab" type="button" id="film-animation-tab" role="tab"
+        aria-selected="false" aria-controls="film-animation-panel" tabindex="-1">Film Animation</button>
+    </div>
+    <div class="portfolio-panel" id="visual-art-panel" role="tabpanel" aria-labelledby="visual-art-tab" tabindex="0"></div>
+    <div class="portfolio-panel" id="film-animation-panel" role="tabpanel" aria-labelledby="film-animation-tab" tabindex="0" hidden></div>
+  </main>
   <footer></footer>
 </body>
 
