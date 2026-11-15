@@ -96,7 +96,14 @@ h6 {
   position: absolute;
   z-index: -1;
   pointer-events: none;
-  clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 100%, 0 100%);
+  /* Round the junction with the slanted edge, rather than the clipped box corner. */
+  clip-path: polygon(0 0, calc(100% - 1rem - 9px) 0,
+      calc(100% - 1rem - 4px) 1px, calc(100% - 1rem) 4px,
+      calc(100% - 1rem + 3px) 9px, 100% 100%, 0 100%);
+  clip-path: shape(from 0 0,
+      line to calc(100% - 1rem - 9px) 0,
+      arc to calc(100% - 1rem + 3px) 9px of 12px cw,
+      line to 100% 100%, line to 0 100%, close);
 }
 
 .portfolio-tabs__tab::before {
