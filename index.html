@@ -53,12 +53,17 @@
           <figure class="mb-0">
             <div class="art-project__portrait-pair">
               <img class="art-project__image art-project__reference" src="images/ref.webp" width="360" height="540"
-                alt="Reference photograph of a person with a dark bob, hoop earrings and a black feathered outfit."
-                decoding="async">
-              <img class="art-project__image art-project__drawing" src="images/realism-portrait.webp" width="1120"
-                height="1548"
-                alt="Detailed monochrome drawing in a spiral-bound sketchbook of the same person, with shaded hair, face and shoulders."
-                decoding="async">
+                  alt="Reference photograph of a person with a dark bob, hoop earrings and a black feathered outfit."
+                  decoding="async">
+              <button class="media-enlarge art-project__drawing" type="button" data-lightbox-index="0"
+                aria-label="Enlarge Realism Portrait"
+                aria-haspopup="dialog" aria-controls="portfolio-lightbox">
+                <img class="art-project__image" src="images/realism-portrait.webp" width="1120"
+                  height="1548"
+                  alt="Detailed monochrome drawing in a spiral-bound sketchbook of the same person, with shaded hair, face and shoulders."
+                  decoding="async">
+                <span class="media-enlarge__hint"><svg class="enlarge-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6M10 7v6M7 10h6"></path></svg><span>Click to enlarge</span></span>
+              </button>
             </div>
             <figcaption class="art-project__caption mt-4">
               <p class="mb-0"></p>
@@ -74,9 +79,14 @@
           </h2>
           <figure class="mb-0">
             <div class="art-project__frame art-project__frame--yellow">
-              <img class="art-project__image" src="images/high-tides.webp" width="1600" height="751"
-                alt="Colourful digital illustration of characters fighting and swinging between the masts of a sailing ship beneath a glowing blue, purple and pink sky."
-                loading="lazy" decoding="async">
+              <button class="media-enlarge" type="button" data-lightbox-index="1"
+                aria-label="Enlarge High Tides"
+                aria-haspopup="dialog" aria-controls="portfolio-lightbox">
+                <img class="art-project__image" src="images/high-tides.webp" width="1600" height="751"
+                  alt="Colourful digital illustration of characters fighting and swinging between the masts of a sailing ship beneath a glowing blue, purple and pink sky."
+                  loading="lazy" decoding="async">
+                <span class="media-enlarge__hint"><svg class="enlarge-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6M10 7v6M7 10h6"></path></svg><span>Click to enlarge</span></span>
+              </button>
             </div>
             <figcaption class="art-project__caption mt-4">
               <p class="mb-0"></p>
@@ -92,9 +102,14 @@
           </h2>
           <figure class="mb-0">
             <div class="art-project__frame art-project__frame--orange">
-              <img class="art-project__image" src="images/franz.webp" width="1131" height="1600"
-                alt="Digital character portrait of a grinning figure with long black hair, a pale jacket, red striped tie and a raised yellow-gloved hand."
-                loading="lazy" decoding="async">
+              <button class="media-enlarge" type="button" data-lightbox-index="2"
+                aria-label="Enlarge Franz"
+                aria-haspopup="dialog" aria-controls="portfolio-lightbox">
+                <img class="art-project__image" src="images/franz.webp" width="1131" height="1600"
+                  alt="Digital character portrait of a grinning figure with long black hair, a pale jacket, red striped tie and a raised yellow-gloved hand."
+                  loading="lazy" decoding="async">
+                <span class="media-enlarge__hint"><svg class="enlarge-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6M10 7v6M7 10h6"></path></svg><span>Click to enlarge</span></span>
+              </button>
             </div>
             <figcaption class="art-project__caption mt-4">
               <p class="mb-0"></p>
@@ -110,9 +125,14 @@
           </h2>
           <figure class="mb-0">
             <div class="art-project__frame art-project__frame--yellow">
-              <img class="art-project__image" src="images/9e.webp" width="1600" height="1131"
-                alt="Illustrated group portrait of smiling students in blue shirts and dark school uniforms, arranged in rows, with several making peace signs."
-                loading="lazy" decoding="async">
+              <button class="media-enlarge" type="button" data-lightbox-index="3"
+                aria-label="Enlarge 9E"
+                aria-haspopup="dialog" aria-controls="portfolio-lightbox">
+                <img class="art-project__image" src="images/9e.webp" width="1600" height="1131"
+                  alt="Illustrated group portrait of smiling students in blue shirts and dark school uniforms, arranged in rows, with several making peace signs."
+                  loading="lazy" decoding="async">
+                <span class="media-enlarge__hint"><svg class="enlarge-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6M10 7v6M7 10h6"></path></svg><span>Click to enlarge</span></span>
+              </button>
             </div>
             <figcaption class="art-project__caption mt-4">
               <p class="mb-0"></p>
@@ -136,11 +156,18 @@
           <h2 class="film-project__title" id="sentimental-title">Sentimental
             <span class="film-project__underline film-project__divider--primary" aria-hidden="true"></span>
           </h2>
-          <video class="film-project__video" controls playsinline preload="metadata" aria-labelledby="sentimental-title">
-            <source src="video/sentimetal.mp4" type="video/mp4">
-            <!-- Add a captions track here when a verified caption file is available. -->
-            Your browser does not support HTML5 video. <a href="video/sentimetal.mp4">Download Sentimental</a>.
-          </video>
+          <div class="film-media">
+            <video class="film-project__video" controls playsinline preload="metadata" aria-labelledby="sentimental-title">
+              <source src="video/sentimetal.mp4" type="video/mp4">
+              <!-- Add a captions track here when a verified caption file is available. -->
+              Your browser does not support HTML5 video. <a href="video/sentimetal.mp4">Download Sentimental</a>.
+            </video>
+            <button class="film-media__enlarge" type="button" data-lightbox-index="4"
+              aria-label="Enlarge Sentimental"
+              aria-haspopup="dialog" aria-controls="portfolio-lightbox">
+              <svg class="enlarge-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6M10 7v6M7 10h6"></path></svg><span>Click to enlarge</span>
+            </button>
+          </div>
           <p class="film-project__description mt-4 mb-0"></p>
           <!-- Add the film transcript or a link to it here when available. -->
           <a class="project-back-link mt-3" href="#film-animation-projects">Back to projects <span aria-hidden="true">↑</span></a>
@@ -151,11 +178,18 @@
           <h2 class="film-project__title" id="shes-not-there-title">She's Not There — The Zombies
             <span class="film-project__underline film-project__divider--accent" aria-hidden="true"></span>
           </h2>
-          <video class="film-project__video" controls playsinline preload="metadata" aria-labelledby="shes-not-there-title">
-            <source src="video/shes-not-there.mp4" type="video/mp4">
-            <!-- Add a captions track here when a verified caption file is available. -->
-            Your browser does not support HTML5 video. <a href="video/shes-not-there.mp4">Download She's Not There — The Zombies</a>.
-          </video>
+          <div class="film-media">
+            <video class="film-project__video" controls playsinline preload="metadata" aria-labelledby="shes-not-there-title">
+              <source src="video/shes-not-there.mp4" type="video/mp4">
+              <!-- Add a captions track here when a verified caption file is available. -->
+              Your browser does not support HTML5 video. <a href="video/shes-not-there.mp4">Download She's Not There — The Zombies</a>.
+            </video>
+            <button class="film-media__enlarge" type="button" data-lightbox-index="5"
+              aria-label="Enlarge She's Not There — The Zombies"
+              aria-haspopup="dialog" aria-controls="portfolio-lightbox">
+              <svg class="enlarge-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6M10 7v6M7 10h6"></path></svg><span>Click to enlarge</span>
+            </button>
+          </div>
           <p class="film-project__description mt-4 mb-0"></p>
           <!-- Add the film transcript or a link to it here when available. -->
           <a class="project-back-link mt-3" href="#film-animation-projects">Back to projects <span aria-hidden="true">↑</span></a>
@@ -166,11 +200,18 @@
           <h2 class="film-project__title" id="pirate-title">Pirate
             <span class="film-project__underline film-project__divider--primary" aria-hidden="true"></span>
           </h2>
-          <video class="film-project__video" controls playsinline preload="metadata" aria-labelledby="pirate-title">
-            <source src="video/pirate.mp4" type="video/mp4">
-            <!-- Add a captions track here when a verified caption file is available. -->
-            Your browser does not support HTML5 video. <a href="video/pirate.mp4">Download Pirate</a>.
-          </video>
+          <div class="film-media">
+            <video class="film-project__video" controls playsinline preload="metadata" aria-labelledby="pirate-title">
+              <source src="video/pirate.mp4" type="video/mp4">
+              <!-- Add a captions track here when a verified caption file is available. -->
+              Your browser does not support HTML5 video. <a href="video/pirate.mp4">Download Pirate</a>.
+            </video>
+            <button class="film-media__enlarge" type="button" data-lightbox-index="6"
+              aria-label="Enlarge Pirate"
+              aria-haspopup="dialog" aria-controls="portfolio-lightbox">
+              <svg class="enlarge-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6M10 7v6M7 10h6"></path></svg><span>Click to enlarge</span>
+            </button>
+          </div>
           <p class="film-project__description mt-4 mb-0"></p>
           <!-- Add the film transcript or a link to it here when available. -->
           <a class="project-back-link mt-3" href="#film-animation-projects">Back to projects <span aria-hidden="true">↑</span></a>
@@ -179,6 +220,36 @@
     </div>
   </main>
   <footer></footer>
+
+  <!-- One shared modal for the complete artwork and film collection. -->
+  <div class="modal portfolio-lightbox" id="portfolio-lightbox" tabindex="-1" aria-labelledby="lightbox-title" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header lightbox-header">
+          <div class="lightbox-header__text" aria-live="polite" aria-atomic="true">
+            <p class="lightbox-breadcrumb mb-1" id="lightbox-breadcrumb"></p>
+            <h2 class="lightbox-title mb-0" id="lightbox-title"></h2>
+          </div>
+        </div>
+        <div class="modal-body lightbox-body">
+          <div class="lightbox-stage" id="lightbox-stage"></div>
+          <p class="lightbox-description mb-0" id="lightbox-description"></p>
+        </div>
+        <div class="modal-footer lightbox-footer">
+          <button class="lightbox-control lightbox-close" type="button" data-bs-dismiss="modal" aria-label="Close lightbox">
+            <span aria-hidden="true">×</span><span>Close</span>
+          </button>
+          <button class="lightbox-control" type="button" id="lightbox-previous" aria-label="Previous item">
+            <span aria-hidden="true">←</span><span>Previous</span>
+          </button>
+          <p class="lightbox-counter mb-0" id="lightbox-counter" aria-live="polite" aria-atomic="true"></p>
+          <button class="lightbox-control" type="button" id="lightbox-next" aria-label="Next item">
+            <span>Next</span><span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
