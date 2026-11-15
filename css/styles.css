@@ -1,0 +1,27 @@
+/* Brand colours and typography */
+:root {
+  --color-background: #FFF9F0;
+  --color-text: #141414;
+  --color-primary: #FFCC00;
+  --color-accent: #BD4200;
+  --font-heading: "nordique-pro-cyrillic", "Arial", sans-serif;
+  --font-body: "gill-sans-nova", "Gill Sans", "Arial", sans-serif;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
