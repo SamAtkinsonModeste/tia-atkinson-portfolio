@@ -31,13 +31,130 @@
   </header>
   <main class="container-fluid px-3 px-md-4 px-xl-5 py-4 py-md-5">
     <div class="portfolio-tabs d-flex justify-content-start" role="tablist" aria-label="Portfolio categories">
-      <button class="portfolio-tabs__tab" type="button" id="visual-art-tab" role="tab"
-        aria-selected="true" aria-controls="visual-art-panel" tabindex="0">Visual Art</button>
-      <button class="portfolio-tabs__tab" type="button" id="film-animation-tab" role="tab"
-        aria-selected="false" aria-controls="film-animation-panel" tabindex="-1">Film Animation</button>
+      <button class="portfolio-tabs__tab" type="button" id="visual-art-tab" role="tab" aria-selected="true"
+        aria-controls="visual-art-panel" tabindex="0">Visual Art</button>
+      <button class="portfolio-tabs__tab" type="button" id="film-animation-tab" role="tab" aria-selected="false"
+        aria-controls="film-animation-panel" tabindex="-1">Film Animation</button>
     </div>
-    <div class="portfolio-panel" id="visual-art-panel" role="tabpanel" aria-labelledby="visual-art-tab" tabindex="0"></div>
-    <div class="portfolio-panel" id="film-animation-panel" role="tabpanel" aria-labelledby="film-animation-tab" tabindex="0" hidden></div>
+    <div class="portfolio-panel" id="visual-art-panel" role="tabpanel" aria-labelledby="visual-art-tab" tabindex="0">
+      <div class="art-gallery d-flex flex-column align-items-center py-3 py-md-4">
+        <section class="art-project art-project--portrait-pair" aria-labelledby="realism-portrait-title">
+          <h2 class="art-project__title" id="realism-portrait-title">Realism Portrait
+            <span class="art-project__divider art-project__divider--primary" aria-hidden="true"></span>
+          </h2>
+          <figure class="mb-0">
+            <div class="art-project__portrait-pair">
+              <img class="art-project__image art-project__reference" src="images/ref.webp" width="360" height="540"
+                alt="Reference photograph of a person with a dark bob, hoop earrings and a black feathered outfit."
+                decoding="async">
+              <img class="art-project__image art-project__drawing" src="images/realism-portrait.webp" width="1120"
+                height="1548"
+                alt="Detailed monochrome drawing in a spiral-bound sketchbook of the same person, with shaded hair, face and shoulders."
+                decoding="async">
+            </div>
+            <figcaption class="art-project__caption mt-4">
+              <p class="mb-0"></p>
+            </figcaption>
+          </figure>
+        </section>
+        <span class="art-project__section-divider art-project__divider--primary" aria-hidden="true"></span>
+
+        <section class="art-project art-project--wide" aria-labelledby="high-ties-title">
+          <h2 class="art-project__title" id="high-ties-title">High Tides
+            <span class="art-project__divider art-project__divider--accent" aria-hidden="true"></span>
+          </h2>
+          <figure class="mb-0">
+            <div class="art-project__frame art-project__frame--yellow">
+              <img class="art-project__image" src="images/high-tides.webp" width="1600" height="751"
+                alt="Colourful digital illustration of characters fighting and swinging between the masts of a sailing ship beneath a glowing blue, purple and pink sky."
+                loading="lazy" decoding="async">
+            </div>
+            <figcaption class="art-project__caption mt-4">
+              <p class="mb-0"></p>
+            </figcaption>
+          </figure>
+        </section>
+        <span class="art-project__section-divider art-project__divider--accent" aria-hidden="true"></span>
+
+        <section class="art-project art-project--franz" aria-labelledby="franz-title">
+          <h2 class="art-project__title" id="franz-title">Franz
+            <span class="art-project__divider art-project__divider--primary" aria-hidden="true"></span>
+          </h2>
+          <figure class="mb-0">
+            <div class="art-project__frame art-project__frame--orange">
+              <img class="art-project__image" src="images/franz.webp" width="1131" height="1600"
+                alt="Digital character portrait of a grinning figure with long black hair, a pale jacket, red striped tie and a raised yellow-gloved hand."
+                loading="lazy" decoding="async">
+            </div>
+            <figcaption class="art-project__caption mt-4">
+              <p class="mb-0"></p>
+            </figcaption>
+          </figure>
+        </section>
+        <span class="art-project__section-divider art-project__divider--primary" aria-hidden="true"></span>
+
+        <section class="art-project art-project--wide" aria-labelledby="9e-title">
+          <h2 class="art-project__title" id="9e-title">9E
+            <span class="art-project__divider art-project__divider--accent" aria-hidden="true"></span>
+          </h2>
+          <figure class="mb-0">
+            <div class="art-project__frame art-project__frame--yellow">
+              <img class="art-project__image" src="images/9e.webp" width="1600" height="1131"
+                alt="Illustrated group portrait of smiling students in blue shirts and dark school uniforms, arranged in rows, with several making peace signs."
+                loading="lazy" decoding="async">
+            </div>
+            <figcaption class="art-project__caption mt-4">
+              <p class="mb-0"></p>
+            </figcaption>
+          </figure>
+        </section>
+      </div>
+    </div>
+    <div class="portfolio-panel" id="film-animation-panel" role="tabpanel" aria-labelledby="film-animation-tab"
+      tabindex="0" hidden>
+      <div class="film-gallery d-flex flex-column align-items-center py-3 py-md-4">
+        <section class="film-project" aria-labelledby="sentimental-title">
+          <h2 class="film-project__title" id="sentimental-title">Sentimental
+            <span class="film-project__underline film-project__divider--primary" aria-hidden="true"></span>
+          </h2>
+          <video class="film-project__video" controls playsinline preload="metadata" aria-labelledby="sentimental-title">
+            <source src="video/sentimetal.mp4" type="video/mp4">
+            <!-- Add a captions track here when a verified caption file is available. -->
+            Your browser does not support HTML5 video. <a href="video/sentimetal.mp4">Download Sentimental</a>.
+          </video>
+          <p class="film-project__description mt-4 mb-0"></p>
+          <!-- Add the film transcript or a link to it here when available. -->
+        </section>
+        <span class="film-project__section-divider film-project__divider--primary" aria-hidden="true"></span>
+
+        <section class="film-project" aria-labelledby="shes-not-there-title">
+          <h2 class="film-project__title" id="shes-not-there-title">She's Not There — The Zombies
+            <span class="film-project__underline film-project__divider--accent" aria-hidden="true"></span>
+          </h2>
+          <video class="film-project__video" controls playsinline preload="metadata" aria-labelledby="shes-not-there-title">
+            <source src="video/shes-not-there.mp4" type="video/mp4">
+            <!-- Add a captions track here when a verified caption file is available. -->
+            Your browser does not support HTML5 video. <a href="video/shes-not-there.mp4">Download She's Not There — The Zombies</a>.
+          </video>
+          <p class="film-project__description mt-4 mb-0"></p>
+          <!-- Add the film transcript or a link to it here when available. -->
+        </section>
+        <span class="film-project__section-divider film-project__divider--accent" aria-hidden="true"></span>
+
+        <section class="film-project" aria-labelledby="pirate-title">
+          <h2 class="film-project__title" id="pirate-title">Pirate
+            <span class="film-project__underline film-project__divider--primary" aria-hidden="true"></span>
+          </h2>
+          <video class="film-project__video" controls playsinline preload="metadata" aria-labelledby="pirate-title">
+            <source src="video/pirate.mp4" type="video/mp4">
+            <!-- Add a captions track here when a verified caption file is available. -->
+            Your browser does not support HTML5 video. <a href="video/pirate.mp4">Download Pirate</a>.
+          </video>
+          <p class="film-project__description mt-4 mb-0"></p>
+          <!-- Add the film transcript or a link to it here when available. -->
+        </section>
+      </div>
+    </div>
   </main>
   <footer></footer>
 </body>
