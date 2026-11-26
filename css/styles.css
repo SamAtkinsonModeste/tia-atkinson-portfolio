@@ -771,6 +771,11 @@ h6 {
 }
 
 .lightbox-description {
+  text-align: center;
+  white-space: pre-line;
+  text-wrap: balance;
+  max-width: 90ch;
+  margin-inline: auto;
   min-height: 1.6em;
   flex-shrink: 0;
   font-size: clamp(1rem, 0.85rem + 0.5vw, 1.5rem);
@@ -786,6 +791,11 @@ h6 {
 
 .lightbox-footer > * {
   margin: 0;
+}
+
+#lightbox-previous:disabled,
+#lightbox-next:disabled {
+  visibility: hidden;
 }
 
 .lightbox-control {

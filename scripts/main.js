@@ -93,8 +93,16 @@ restorePortfolioFragment();
 const lightboxElement = document.getElementById("portfolio-lightbox");
 const lightbox = bootstrap.Modal.getOrCreateInstance(lightboxElement);
 const lightboxStage = document.getElementById("lightbox-stage");
+const lightboxPrevious = document.getElementById("lightbox-previous");
+const lightboxNext = document.getElementById("lightbox-next");
 const lightboxTriggers = Array.from(document.querySelectorAll("[data-lightbox-index]"))
   .sort((a, b) => Number(a.dataset.lightboxIndex) - Number(b.dataset.lightboxIndex));
+const lightboxDescriptionPauses = new Map([
+  ["visual-art-realism-portrait", "create more detailed drawings,"],
+  ["film-animation-sentimental", "while I developed the animation,"],
+  ["film-animation-shes-not-there", "as well as old photos of the band,"],
+  ["film-animation-pirate", "making each shot seamlessly follow the next,"]
+]);
 const lightboxItems = lightboxTriggers.map((trigger) => {
   const project = trigger.closest("section");
   const image = trigger.querySelector("img");
@@ -106,7 +114,8 @@ const lightboxItems = lightboxTriggers.map((trigger) => {
     video: image ? null : video,
     title: trigger.getAttribute("aria-label").replace(/^Enlarge /, ""),
     category: image ? "Visual Art" : "Film Animation",
-    description: project.querySelector("figcaption p, .film-project__description")
+    description: project.querySelector(".project-description"),
+    descriptionPause: lightboxDescriptionPauses.get(project.id)
   };
 });
 let lightboxIndex = 0;
@@ -127,9 +136,33 @@ function resetLightboxVideo() {
   video.load();
 }
 
+const lightboxSentenceSegmenter = typeof Intl.Segmenter === "function"
+  ? new Intl.Segmenter(document.documentElement.lang || "en", { granularity: "sentence" })
+  : null;
+
+function formatLightboxDescription(text) {
+  // Collapse indentation from the HTML before adding display line breaks.
+  const description = text.replace(/\s+/g, " ").trim();
+  if (!lightboxSentenceSegmenter) return description;
+
+  const sentences = [];
+  for (const { segment } of lightboxSentenceSegmenter.segment(description)) {
+    const previous = sentences.at(-1);
+    // The segmenter can mistake abbreviations and initials for sentence endings.
+    if (previous && /\b(?:Mr|Mrs|Ms|Dr|Prof|St|e\.g|i\.e|[A-Z])\.$/u.test(previous)) {
+      sentences[sentences.length - 1] = previous + " " + segment.trim();
+    } else {
+      sentences.push(segment.trim());
+    }
+  }
+  return sentences.join("\n");
+}
+
 function displayLightboxItem(index) {
+  if (index < 0 || index >= lightboxItems.length) return;
+
   resetLightboxVideo();
-  lightboxIndex = (index + lightboxItems.length) % lightboxItems.length;
+  lightboxIndex = index;
   const item = lightboxItems[lightboxIndex];
   const media = document.createElement(item.reference ? "div" : item.image ? "img" : "video");
   media.className = item.reference ? "lightbox-composition" : "lightbox-media";
@@ -159,7 +192,19 @@ function displayLightboxItem(index) {
   document.getElementById("lightbox-title").textContent = item.title;
   document.getElementById("lightbox-breadcrumb").textContent = `${item.category} › ${item.title}`;
   document.getElementById("lightbox-counter").textContent = `${lightboxIndex + 1} of ${lightboxItems.length}`;
-  document.getElementById("lightbox-description").textContent = item.description?.textContent.trim() || "";
+  const description = formatLightboxDescription(item.description?.textContent ?? "");
+  document.getElementById("lightbox-description").textContent = item.descriptionPause
+    ? description.replace(item.descriptionPause + " ", item.descriptionPause + "\n")
+    : description;
+
+  const focusedControl = document.activeElement;
+  lightboxPrevious.disabled = index === 0;
+  lightboxNext.disabled = index === lightboxItems.length - 1;
+  if (focusedControl === lightboxPrevious && lightboxPrevious.disabled) {
+    lightboxNext.focus({ preventScroll: true });
+  } else if (focusedControl === lightboxNext && lightboxNext.disabled) {
+    lightboxPrevious.focus({ preventScroll: true });
+  }
 }
 
 lightboxItems.forEach((item, index) => {
@@ -171,8 +216,8 @@ lightboxItems.forEach((item, index) => {
   });
 });
 
-document.getElementById("lightbox-previous").addEventListener("click", () => displayLightboxItem(lightboxIndex - 1));
-document.getElementById("lightbox-next").addEventListener("click", () => displayLightboxItem(lightboxIndex + 1));
+lightboxPrevious.addEventListener("click", () => displayLightboxItem(lightboxIndex - 1));
+lightboxNext.addEventListener("click", () => displayLightboxItem(lightboxIndex + 1));
 
 lightboxElement.addEventListener("keydown", (event) => {
   // Leave arrow keys to the native video player whenever it has focus.
