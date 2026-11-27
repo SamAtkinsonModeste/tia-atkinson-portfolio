@@ -195,8 +195,9 @@ h6 {
   max-width: 100rem;
 }
 
-.art-project--franz {
+.art-project__franz-width {
   max-width: 42rem;
+  margin-inline: auto;
 }
 
 .art-project__image {
@@ -486,11 +487,12 @@ h6 {
     max-width: 1000px;
   }
 
-  .art-project--franz {
+  .art-project__franz-width {
     max-width: 672px;
   }
 
-  #visual-art-9e {
+  #visual-art-9e,
+  .art-project--wide.art-project--franz {
     max-width: 960px;
   }
 
@@ -581,11 +583,12 @@ h6 {
     max-width: 1440px;
   }
 
-  .art-project--franz {
+  .art-project__franz-width {
     max-width: 688px;
   }
 
-  #visual-art-9e {
+  #visual-art-9e,
+  .art-project--wide.art-project--franz {
     max-width: 1280px;
   }
 
@@ -649,11 +652,12 @@ h6 {
     max-width: clamp(1440px, 62.5vw, 1600px);
   }
 
-  .art-project--franz {
+  .art-project__franz-width {
     max-width: 700px;
   }
 
-  #visual-art-9e {
+  #visual-art-9e,
+  .art-project--wide.art-project--franz {
     max-width: clamp(1280px, 56.25vw, 1440px);
   }
 
