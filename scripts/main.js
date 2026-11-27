@@ -137,7 +137,8 @@ document.querySelectorAll("[data-lightbox-gallery]").forEach((gallery) => {
     ({ trigger }) => trigger.closest("section").id === gallery.dataset.lightboxFinish
   );
   if (finishedItem) {
-    items.push({ ...finishedItem, trigger: null, title: "Finished artwork", category, breadcrumb });
+    const title = finishedItem.video ? "Finished animation" : "Finished artwork";
+    items.push({ ...finishedItem, trigger: null, title, category, breadcrumb });
   }
   lightboxCollections.set(gallery.dataset.lightboxGallery, items);
 });
