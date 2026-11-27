@@ -89,7 +89,7 @@ window.addEventListener("hashchange", restorePortfolioFragment);
 window.addEventListener("popstate", restorePortfolioFragment);
 restorePortfolioFragment();
 
-// A single Bootstrap modal shares one ordered collection across both galleries.
+// The Bootstrap modal renders whichever collection the opener belongs to.
 const lightboxElement = document.getElementById("portfolio-lightbox");
 const lightbox = bootstrap.Modal.getOrCreateInstance(lightboxElement);
 const lightboxStage = document.getElementById("lightbox-stage");
@@ -103,21 +103,43 @@ const lightboxDescriptionPauses = new Map([
   ["film-animation-shes-not-there", "as well as old photos of the band,"],
   ["film-animation-pirate", "making each shot seamlessly follow the next,"]
 ]);
-const lightboxItems = lightboxTriggers.map((trigger) => {
-  const project = trigger.closest("section");
-  const image = trigger.querySelector("img");
-  const video = project.querySelector("video");
-  return {
-    trigger,
-    image,
-    reference: project.querySelector("img.art-project__reference"),
-    video: image ? null : video,
-    title: trigger.getAttribute("aria-label").replace(/^Enlarge /, ""),
-    category: image ? "Visual Art" : "Film Animation",
-    description: project.querySelector(".project-description"),
-    descriptionPause: lightboxDescriptionPauses.get(project.id)
-  };
+const portfolioLightboxItems = lightboxTriggers
+  .filter((trigger) => !trigger.closest("[data-lightbox-gallery]"))
+  .map((trigger) => {
+    const project = trigger.closest("section");
+    const image = trigger.querySelector("img");
+    const video = project.querySelector("video");
+    return {
+      trigger,
+      image,
+      reference: project.querySelector("img.art-project__reference"),
+      video: image ? null : video,
+      title: trigger.getAttribute("aria-label").replace(/^Enlarge /, ""),
+      category: image ? "Visual Art" : "Film Animation",
+      description: project.querySelector(".project-description"),
+      descriptionPause: lightboxDescriptionPauses.get(project.id)
+    };
+  });
+const lightboxCollections = new Map([["portfolio", portfolioLightboxItems]]);
+document.querySelectorAll("[data-lightbox-gallery]").forEach((gallery) => {
+  const category = "Creative Development";
+  const items = lightboxTriggers
+    .filter((trigger) => trigger.closest("[data-lightbox-gallery]") === gallery)
+    .map((trigger) => ({
+      trigger,
+      image: trigger.querySelector("img"),
+      title: trigger.closest("figure").querySelector("figcaption").textContent.trim(),
+      category
+    }));
+  const finishedItem = portfolioLightboxItems.find(
+    ({ trigger }) => trigger.closest("section").id === gallery.dataset.lightboxFinish
+  );
+  if (finishedItem) {
+    items.push({ ...finishedItem, trigger: null, title: "Finished artwork", category });
+  }
+  lightboxCollections.set(gallery.dataset.lightboxGallery, items);
 });
+let lightboxItems = portfolioLightboxItems;
 let lightboxIndex = 0;
 let lightboxOpener;
 let backgroundInertState = [];
@@ -207,12 +229,16 @@ function displayLightboxItem(index) {
   }
 }
 
-lightboxItems.forEach((item, index) => {
-  item.trigger.addEventListener("click", () => {
-    lightboxOpener = item.trigger;
-    document.querySelectorAll(".film-project__video").forEach((video) => video.pause());
-    displayLightboxItem(index);
-    lightbox.show(item.trigger);
+lightboxCollections.forEach((items) => {
+  items.forEach(({ trigger }, index) => {
+    if (!trigger) return;
+    trigger.addEventListener("click", () => {
+      lightboxItems = items;
+      lightboxOpener = trigger;
+      document.querySelectorAll(".film-project__video").forEach((video) => video.pause());
+      displayLightboxItem(index);
+      lightbox.show(trigger);
+    });
   });
 });
 
