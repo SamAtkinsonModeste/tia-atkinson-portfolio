@@ -123,19 +123,21 @@ const portfolioLightboxItems = lightboxTriggers
 const lightboxCollections = new Map([["portfolio", portfolioLightboxItems]]);
 document.querySelectorAll("[data-lightbox-gallery]").forEach((gallery) => {
   const category = "Creative Development";
+  const breadcrumb = gallery.dataset.lightboxBreadcrumb;
   const items = lightboxTriggers
     .filter((trigger) => trigger.closest("[data-lightbox-gallery]") === gallery)
     .map((trigger) => ({
       trigger,
       image: trigger.querySelector("img"),
       title: trigger.closest("figure").querySelector("figcaption").textContent.trim(),
-      category
+      category,
+      breadcrumb
     }));
   const finishedItem = portfolioLightboxItems.find(
     ({ trigger }) => trigger.closest("section").id === gallery.dataset.lightboxFinish
   );
   if (finishedItem) {
-    items.push({ ...finishedItem, trigger: null, title: "Finished artwork", category });
+    items.push({ ...finishedItem, trigger: null, title: "Finished artwork", category, breadcrumb });
   }
   lightboxCollections.set(gallery.dataset.lightboxGallery, items);
 });
@@ -212,7 +214,8 @@ function displayLightboxItem(index) {
   }
   lightboxStage.replaceChildren(media);
   document.getElementById("lightbox-title").textContent = item.title;
-  document.getElementById("lightbox-breadcrumb").textContent = `${item.category} › ${item.title}`;
+  document.getElementById("lightbox-breadcrumb").textContent =
+    item.breadcrumb ?? `${item.category} › ${item.title}`;
   document.getElementById("lightbox-counter").textContent = `${lightboxIndex + 1} of ${lightboxItems.length}`;
   const description = formatLightboxDescription(item.description?.textContent ?? "");
   document.getElementById("lightbox-description").textContent = item.descriptionPause
